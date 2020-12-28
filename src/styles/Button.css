@@ -1,0 +1,13 @@
+.button:hover {
+    background-color: rgb(125, 129, 133);
+    cursor: pointer;
+}
+
+.button {
+    display: flex;
+    padding: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
+    border-radius: 6px;
+    justify-content: center;
+}

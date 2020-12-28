@@ -1,0 +1,24 @@
+.site {
+    display: flex;
+    background-color: #282828;
+    margin: 0;
+    height: max-content;
+    color: hsla(0, 0%, 100%, .87);
+    justify-content: flex-end;
+    flex-direction: column;
+}
+
+body {
+    margin: 0;
+}
+
+.page-container {
+    display: flex;
+    width: 100%;
+}
+
+
+.image {
+    display: flex;
+    width: 100%;
+}
