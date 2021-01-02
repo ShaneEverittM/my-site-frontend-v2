@@ -8,14 +8,11 @@ const hostname = "http://localhost:8000"
 const Home: FunctionComponent<{ name: string }> = ({name}) => {
     const [text, setText] = useState<string>();
 
-    interface Response {
-        message: string,
-    }
 
     const getHitCount = () => {
         axios
-            .get<Response>(`${hostname}/${name}`)
-            .then((res: AxiosResponse<Response>) => setText(res.data.message))
+            .get<string>(`${hostname}/${name}`)
+            .then((res: AxiosResponse<string>) => setText(res.data))
             .catch((reason: string) => console.log(`Cannot connect to backend on ${hostname}. ${reason}`))
     };
 

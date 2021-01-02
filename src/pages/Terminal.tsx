@@ -5,12 +5,14 @@ import axios from 'axios'
 const hostname = 'http://localhost:8000'
 
 
-const TerminalPage: FunctionComponent = () => {
+const TerminalPage: FunctionComponent<{ prog_name: string }> = ({prog_name}) => {
     useEffect(() => {
-        axios.post(`${hostname}/filesystem`, {command: "init"}).then(() => {
-        }).catch(() => {
+        axios.post(`${hostname}/projects/${prog_name}`, {command: "init"}).then((res) => {
+            console.log(res.data);
+        }).catch((res) => {
+            console.log(res);
         })
-    })
+    }, [prog_name])
     return (
         <div
             style={{
@@ -41,13 +43,15 @@ const TerminalPage: FunctionComponent = () => {
                 commandPassThrough={(cmd, print: (s: string) => void) => {
                     console.log(`Sending command: ${cmd}`)
                     let space_cmd = `${cmd}`.split(",").join(" ")
-                    axios.post(`${hostname}/filesystem`, {command: `${space_cmd}`}).then(res => {
-                        print(res.data["msg"]);
+                    console.log(prog_name);
+                    axios.post(`${hostname}/projects/${prog_name}`, {command: `${space_cmd}`}).then(res => {
+                        print(res.data);
+                    }).catch((res) => {
+                        console.log(`Command failed: ${res}`)
                     })
 
                 }}
 
-                msg='This is my simulated filesystem written in Rust, type "in" to begin.'
             />
             {/* <div style={{
                     display: "flex",

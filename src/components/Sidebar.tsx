@@ -14,10 +14,10 @@ const Sidebar: FunctionComponent = () => {
                         <div style={{marginLeft: "10px"}}>FileSystem</div>
                     </div>
                 </Link>
-                <Link to="/" style={{all: "unset"}}>
+                <Link to="/projects/bash" style={{all: "unset"}}>
                     <div className='sidebar-list-item'>
                         <FaLinux/>
-                        <div style={{marginLeft: "10px"}}>Scheduler</div>
+                        <div style={{marginLeft: "10px"}}>Bash</div>
                     </div>
                 </Link>
             </div>

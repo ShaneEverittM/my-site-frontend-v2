@@ -26,7 +26,10 @@ function App() {
                             <About/>
                         </Route>
                         <Route path="/filesystem/">
-                            <TerminalPage/>
+                            <TerminalPage prog_name="fsystem"/>
+                        </Route>
+                        <Route path="/projects/bash/">
+                            <TerminalPage prog_name="bash"/>
                         </Route>
                     </div>
                 </div>
